@@ -19,6 +19,7 @@
 		4A746871298EDC3A00557E87 /* ShoppingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746870298EDC3A00557E87 /* ShoppingModel.swift */; };
 		4A746875298EDD7D00557E87 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746874298EDD7D00557E87 /* DataStore.swift */; };
 		4A93BAF729A12293007D7E31 /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93BAF629A12293007D7E31 /* ShoppingListController.swift */; };
+		C65DB35B29A12AD6005BFF37 /* NewPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4A746870298EDC3A00557E87 /* ShoppingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingModel.swift; sourceTree = "<group>"; };
 		4A746874298EDD7D00557E87 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		4A93BAF629A12293007D7E31 /* ShoppingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListController.swift; sourceTree = "<group>"; };
+		C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPurchaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				4A93BAF629A12293007D7E31 /* ShoppingListController.swift */,
+				C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				4A93BAF729A12293007D7E31 /* ShoppingListController.swift in Sources */,
 				4A746869298ED84E00557E87 /* TabBarController.swift in Sources */,
 				4A746853298ED81800557E87 /* AppDelegate.swift in Sources */,
+				C65DB35B29A12AD6005BFF37 /* NewPurchaseViewController.swift in Sources */,
 				4A746875298EDD7D00557E87 /* DataStore.swift in Sources */,
 				4A746855298ED81800557E87 /* SceneDelegate.swift in Sources */,
 			);

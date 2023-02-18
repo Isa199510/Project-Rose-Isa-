@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0F910929A13518006B91CD /* ShoppingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0F910829A13518006B91CD /* ShoppingViewCell.swift */; };
 		4A746853298ED81800557E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746852298ED81800557E87 /* AppDelegate.swift */; };
 		4A746855298ED81800557E87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746854298ED81800557E87 /* SceneDelegate.swift */; };
 		4A74685A298ED81800557E87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A746858298ED81800557E87 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A0F910829A13518006B91CD /* ShoppingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewCell.swift; sourceTree = "<group>"; };
 		4A74684F298ED81800557E87 /* Project(Rose-Isa).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project(Rose-Isa).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A746852298ED81800557E87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A746854298ED81800557E87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				4A93BAF629A12293007D7E31 /* ShoppingListController.swift */,
 				C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */,
+				4A0F910829A13518006B91CD /* ShoppingViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				4A93BAF729A12293007D7E31 /* ShoppingListController.swift in Sources */,
 				4A746869298ED84E00557E87 /* TabBarController.swift in Sources */,
 				4A746853298ED81800557E87 /* AppDelegate.swift in Sources */,
+				4A0F910929A13518006B91CD /* ShoppingViewCell.swift in Sources */,
 				C65DB35B29A12AD6005BFF37 /* NewPurchaseViewController.swift in Sources */,
 				4A746875298EDD7D00557E87 /* DataStore.swift in Sources */,
 				4A746855298ED81800557E87 /* SceneDelegate.swift in Sources */,

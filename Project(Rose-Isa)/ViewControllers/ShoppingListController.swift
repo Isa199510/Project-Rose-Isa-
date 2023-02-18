@@ -10,6 +10,7 @@ import UIKit
 class ShoppingListController: UITableViewController {
     
     let items = [1, 2, 3, 4, 5]
+    let shoppings = getShoppingList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,21 +20,22 @@ class ShoppingListController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        items.count
+        shoppings.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingCell", for: indexPath)
+        guard let shoppingCell = tableView.dequeueReusableCell(withIdentifier: "shoppingCell", for: indexPath) as? ShoppingViewCell else { return UITableViewCell()}
 
-        cell.textLabel?.text = String(items[indexPath.row])
-        // Configure the cell...
+        shoppingCell.configure(shoppings[indexPath.row])
 
-        return cell
+        return shoppingCell
     }
     
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

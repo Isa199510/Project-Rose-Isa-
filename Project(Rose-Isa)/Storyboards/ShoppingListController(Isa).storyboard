@@ -34,13 +34,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCell" rowHeight="123" id="6pr-Qy-NRC">
-                                <rect key="frame" x="0.0" y="50" width="393" height="123"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCell" rowHeight="80" id="6pr-Qy-NRC" customClass="ShoppingViewCell" customModule="Project_Rose_Isa_" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6pr-Qy-NRC" id="R1E-XM-Cp8">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="123"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTE-xT-ZBS">
+                                            <rect key="frame" x="40" y="16" width="303" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tv-TC-LAa">
+                                            <rect key="frame" x="50" y="46" width="293" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" systemColor="systemOrangeColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5Tv-TC-LAa" secondAttribute="trailing" constant="30" id="0mY-05-rVK"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="5Tv-TC-LAa" secondAttribute="bottom" constant="5" id="8br-vD-MtV"/>
+                                        <constraint firstItem="nTE-xT-ZBS" firstAttribute="top" secondItem="R1E-XM-Cp8" secondAttribute="topMargin" constant="5" id="TKk-j6-cJ7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="nTE-xT-ZBS" secondAttribute="trailing" constant="30" id="a20-0O-sLY"/>
+                                        <constraint firstItem="5Tv-TC-LAa" firstAttribute="leading" secondItem="R1E-XM-Cp8" secondAttribute="leadingMargin" constant="30" id="cB5-4n-hmg"/>
+                                        <constraint firstItem="nTE-xT-ZBS" firstAttribute="leading" secondItem="R1E-XM-Cp8" secondAttribute="leadingMargin" constant="20" id="x5V-lN-h0c"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="nTE-xT-ZBS" id="GWK-wY-3tz"/>
+                                    <outlet property="totalPriceLabel" destination="5Tv-TC-LAa" id="yPc-Hz-Yc0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -58,6 +84,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

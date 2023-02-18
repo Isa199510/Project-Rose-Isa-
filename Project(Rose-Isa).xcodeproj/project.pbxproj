@@ -18,6 +18,7 @@
 		4A74686F298ED98000557E87 /* Info(Isa).storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A74686E298ED98000557E87 /* Info(Isa).storyboard */; };
 		4A746871298EDC3A00557E87 /* ShoppingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746870298EDC3A00557E87 /* ShoppingModel.swift */; };
 		4A746875298EDD7D00557E87 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746874298EDD7D00557E87 /* DataStore.swift */; };
+		4A93BAF729A12293007D7E31 /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93BAF629A12293007D7E31 /* ShoppingListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		4A74686E298ED98000557E87 /* Info(Isa).storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Info(Isa).storyboard"; sourceTree = "<group>"; };
 		4A746870298EDC3A00557E87 /* ShoppingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingModel.swift; sourceTree = "<group>"; };
 		4A746874298EDD7D00557E87 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		4A93BAF629A12293007D7E31 /* ShoppingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		4A793CE829A121A00080FF33 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4A93BAF629A12293007D7E31 /* ShoppingListController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A746871298EDC3A00557E87 /* ShoppingModel.swift in Sources */,
+				4A93BAF729A12293007D7E31 /* ShoppingListController.swift in Sources */,
 				4A746869298ED84E00557E87 /* TabBarController.swift in Sources */,
 				4A746853298ED81800557E87 /* AppDelegate.swift in Sources */,
 				4A746875298EDD7D00557E87 /* DataStore.swift in Sources */,

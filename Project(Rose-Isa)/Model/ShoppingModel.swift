@@ -31,6 +31,7 @@ struct Purchase {
 struct ShoppingLists {
     var name: String
     var purchases: [Purchase]?
+    var isChecked: Bool
     
     var totalPrice: Double {
         var amount = 0.0
@@ -44,6 +45,7 @@ struct ShoppingLists {
     
     init(_ name: String) {
         self.name = name
+        self.isChecked = false
     }
     
     mutating func setPurchase(_ purchase: Purchase, index: Int?) {

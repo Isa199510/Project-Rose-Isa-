@@ -67,19 +67,22 @@ class ShoppingListController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        
-        
         let delete = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
-
-            let cell = self.tableView.cellForRow(at: indexPath)
-            cell?.backgroundColor = .green
+            self.shoppings[indexPath.row].isChecked.toggle()
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
             succes(true)
         }
-        delete.image = UIImage(systemName: delete.image == UIImage(systemName: "checkmark") ? "clear" : "checkmark")
-        delete.backgroundColor = delete.backgroundColor == .green ? .red : .green
+        delete.image = shoppings[indexPath.row].isChecked ? UIImage(systemName: "clear") : UIImage(systemName: "checkmark")
+        delete.backgroundColor = shoppings[indexPath.row].isChecked ? .red : .green
         
         let swipeAction = UISwipeActionsConfiguration(actions: [delete])
+        swipeAction.performsFirstActionWithFullSwipe = false
         return swipeAction
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "showGroceryList", sender: shoppings[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

@@ -13,7 +13,7 @@ class ShoppingListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
     }
     
     @IBAction func newShopping(_ sender: UIBarButtonItem) {
@@ -24,6 +24,7 @@ class ShoppingListController: UITableViewController {
     }
     
     // MARK: - Table view data source
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         shoppings.count
     }
@@ -36,7 +37,7 @@ class ShoppingListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        80
+        60
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -61,7 +62,6 @@ class ShoppingListController: UITableViewController {
         
         let swipeAction = UISwipeActionsConfiguration(actions: [delete, edit])
         swipeAction.performsFirstActionWithFullSwipe = false
-        
         return swipeAction
     }
     

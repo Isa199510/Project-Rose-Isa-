@@ -27,3 +27,21 @@ func getShoppingList() -> [ShoppingLists] {
     
     return shoppingLists
 }
+
+
+struct Person {
+    let name: String
+    let age: Int
+    let info: String
+    
+    static func getPersons() -> [Person] {
+        var persons: [Person] = [Person]()
+        persons.insert(
+            contentsOf: [
+                Person(name: "Isa", age: 27, info: ""),
+                Person(name: "Rose", age: 35, info: "")
+            ],
+            at: 0)
+        return persons
+    }
+}

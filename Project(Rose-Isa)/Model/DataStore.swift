@@ -7,6 +7,16 @@
 
 import Foundation
 
+class ShoppingManager {
+    var shoppings: [ShoppingLists] = getShoppingList()
+    static let shared = ShoppingManager()
+    
+    func addIter(_ n: Double, shoppingIndex: Int, purchaseIndex: Int) {
+        shoppings[shoppingIndex].purchases?[purchaseIndex].quantity += n
+    }
+    
+}
+
 var shoppingLists = [ShoppingLists]()
 
 func getShoppingList() -> [ShoppingLists] {
@@ -45,3 +55,5 @@ struct Person {
         return persons
     }
 }
+
+var shoppings = getShoppingList()

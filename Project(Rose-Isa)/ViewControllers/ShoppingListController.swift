@@ -9,11 +9,14 @@ import UIKit
 
 class ShoppingListController: UITableViewController {
     
-    var shoppings = getShoppingList()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.reloadData()
     }
     
     @IBAction func newShopping(_ sender: UIBarButtonItem) {
@@ -24,7 +27,6 @@ class ShoppingListController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         shoppings.count
     }
@@ -43,7 +45,7 @@ class ShoppingListController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
 
-            let alert = self.alertForShopping(self.shoppings[indexPath.row].name, at: indexPath.row) {title in
+            let alert = self.alertForShopping(shoppings[indexPath.row].name, at: indexPath.row) {title in
                 self.edittingElement(title, at: indexPath.row)
             }
             self.present(alert, animated: true)
@@ -68,7 +70,7 @@ class ShoppingListController: UITableViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let delete = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
-            self.shoppings[indexPath.row].isChecked.toggle()
+            shoppings[indexPath.row].isChecked.toggle()
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
             succes(true)
         }
@@ -81,20 +83,30 @@ class ShoppingListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "showGroceryList", sender: shoppings[indexPath.row])
+        performSegue(withIdentifier: "showGroceryList", sender: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var totalPrice = 0.0
+        for shopping in shoppings {
+            totalPrice += shopping.totalPrice
+        }
+        return "Итого: \(totalPrice)р."
     }
 }
 
 extension ShoppingListController {
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let groceryVC = segue.destination as? GroceryListController {
-//            groceryVC.shopping = shoppings[sender as? Int ?? 0] as ShoppingLists
-//            groceryVC.at = sender as? Int ?? 0
-//        }
-//    }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showGroceryList" {
+            guard let index = sender as? Int else { return }
+            guard let groceryVC = segue.destination as? GroceryListController else { return }
+            groceryVC.shopping = shoppings[index]
+            groceryVC.at = index
+        }
+    }
+
     private func edittingElement(_ title: String, at: Int) {
         let indexPath = IndexPath(row: at, section: 0)
         shoppings[at].name = title
@@ -112,11 +124,12 @@ extension ShoppingListController {
         shoppings.remove(at: at)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+    
+    
  
     func alertForShopping(_ text: String, at: Int?, handler: @escaping(_ title: String) -> Void) -> UIAlertController {
 
         let title = at != nil ? "Изменение записи" : "Новая запись"
-        
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addTextField()
         alert.textFields?.first?.text = text

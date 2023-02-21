@@ -11,7 +11,9 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cKp-5x-xMv" customClass="TabBarController" customModule="Project_Rose_Isa_" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="kS3-L7-xXl"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sEk-PT-clY">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -24,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
-        <!--Info(Isa)-->
+        <!--Info(Rose)-->
         <scene sceneID="j5H-7d-sSG">
             <objects>
-                <viewControllerPlaceholder storyboardName="Info(Isa)" id="TS6-um-jwK" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Info(Rose)" id="TS6-um-jwK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="sku-XM-V0s"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWc-tO-Jzb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

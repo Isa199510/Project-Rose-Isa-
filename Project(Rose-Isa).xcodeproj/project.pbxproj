@@ -16,11 +16,13 @@
 		4A74685F298ED81800557E87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A74685D298ED81800557E87 /* LaunchScreen.storyboard */; };
 		4A746869298ED84E00557E87 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746868298ED84E00557E87 /* TabBarController.swift */; };
 		4A74686B298ED8C100557E87 /* ShoppingListController(Isa).storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A74686A298ED8C100557E87 /* ShoppingListController(Isa).storyboard */; };
-		4A74686D298ED8D800557E87 /* GroceryListController(Rose).storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A74686C298ED8D800557E87 /* GroceryListController(Rose).storyboard */; };
-		4A74686F298ED98000557E87 /* Info(Isa).storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A74686E298ED98000557E87 /* Info(Isa).storyboard */; };
+		4A74686D298ED8D800557E87 /* GroceryViewController(Rose).storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A74686C298ED8D800557E87 /* GroceryViewController(Rose).storyboard */; };
+		4A74686F298ED98000557E87 /* Info(Rose).storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A74686E298ED98000557E87 /* Info(Rose).storyboard */; };
 		4A746871298EDC3A00557E87 /* ShoppingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746870298EDC3A00557E87 /* ShoppingModel.swift */; };
 		4A746875298EDD7D00557E87 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746874298EDD7D00557E87 /* DataStore.swift */; };
 		4A93BAF729A12293007D7E31 /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93BAF629A12293007D7E31 /* ShoppingListController.swift */; };
+		4AC21F4129A41267005281B7 /* GroceryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC21F4029A41267005281B7 /* GroceryListController.swift */; };
+		4AC21F4329A48CB2005281B7 /* GroceryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC21F4229A48CB2005281B7 /* GroceryViewCell.swift */; };
 		C65DB35B29A12AD6005BFF37 /* NewPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,11 +38,13 @@
 		4A746860298ED81800557E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A746868298ED84E00557E87 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		4A74686A298ED8C100557E87 /* ShoppingListController(Isa).storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "ShoppingListController(Isa).storyboard"; sourceTree = "<group>"; };
-		4A74686C298ED8D800557E87 /* GroceryListController(Rose).storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "GroceryListController(Rose).storyboard"; sourceTree = "<group>"; };
-		4A74686E298ED98000557E87 /* Info(Isa).storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Info(Isa).storyboard"; sourceTree = "<group>"; };
+		4A74686C298ED8D800557E87 /* GroceryViewController(Rose).storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "GroceryViewController(Rose).storyboard"; sourceTree = "<group>"; };
+		4A74686E298ED98000557E87 /* Info(Rose).storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Info(Rose).storyboard"; sourceTree = "<group>"; };
 		4A746870298EDC3A00557E87 /* ShoppingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingModel.swift; sourceTree = "<group>"; };
 		4A746874298EDD7D00557E87 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		4A93BAF629A12293007D7E31 /* ShoppingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListController.swift; sourceTree = "<group>"; };
+		4AC21F4029A41267005281B7 /* GroceryListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListController.swift; sourceTree = "<group>"; };
+		4AC21F4229A48CB2005281B7 /* GroceryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryViewCell.swift; sourceTree = "<group>"; };
 		C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPurchaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,8 +104,8 @@
 				4A746858298ED81800557E87 /* Main.storyboard */,
 				4A74685D298ED81800557E87 /* LaunchScreen.storyboard */,
 				4A74686A298ED8C100557E87 /* ShoppingListController(Isa).storyboard */,
-				4A74686C298ED8D800557E87 /* GroceryListController(Rose).storyboard */,
-				4A74686E298ED98000557E87 /* Info(Isa).storyboard */,
+				4A74686C298ED8D800557E87 /* GroceryViewController(Rose).storyboard */,
+				4A74686E298ED98000557E87 /* Info(Rose).storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -122,6 +126,8 @@
 				C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */,
 				4A0F910829A13518006B91CD /* ShoppingViewCell.swift */,
 				4A015BDF29A2B2C500A76D91 /* InfoListController.swift */,
+				4AC21F4029A41267005281B7 /* GroceryListController.swift */,
+				4AC21F4229A48CB2005281B7 /* GroceryViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -184,12 +190,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A74686D298ED8D800557E87 /* GroceryListController(Rose).storyboard in Resources */,
+				4A74686D298ED8D800557E87 /* GroceryViewController(Rose).storyboard in Resources */,
 				4A74685F298ED81800557E87 /* LaunchScreen.storyboard in Resources */,
 				4A74685C298ED81800557E87 /* Assets.xcassets in Resources */,
 				4A74685A298ED81800557E87 /* Main.storyboard in Resources */,
 				4A74686B298ED8C100557E87 /* ShoppingListController(Isa).storyboard in Resources */,
-				4A74686F298ED98000557E87 /* Info(Isa).storyboard in Resources */,
+				4A74686F298ED98000557E87 /* Info(Rose).storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +209,9 @@
 				4A015BE029A2B2C500A76D91 /* InfoListController.swift in Sources */,
 				4A746871298EDC3A00557E87 /* ShoppingModel.swift in Sources */,
 				4A93BAF729A12293007D7E31 /* ShoppingListController.swift in Sources */,
+				4AC21F4129A41267005281B7 /* GroceryListController.swift in Sources */,
 				4A746869298ED84E00557E87 /* TabBarController.swift in Sources */,
+				4AC21F4329A48CB2005281B7 /* GroceryViewCell.swift in Sources */,
 				4A746853298ED81800557E87 /* AppDelegate.swift in Sources */,
 				4A0F910929A13518006B91CD /* ShoppingViewCell.swift in Sources */,
 				C65DB35B29A12AD6005BFF37 /* NewPurchaseViewController.swift in Sources */,

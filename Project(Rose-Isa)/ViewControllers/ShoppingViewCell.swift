@@ -11,10 +11,6 @@ class ShoppingViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
     func configure(_ shopping: ShoppingLists) {
         nameLabel.text = shopping.name

@@ -138,7 +138,7 @@
                                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="subQuantityButton:" destination="65v-qi-6IK" eventType="touchUpInside" id="4Tz-LG-kRO"/>
+                                                        <action selector="subButtonAction:" destination="wTF-Aa-cpr" eventType="touchUpInside" id="2Vc-b3-PYh"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Feh-5v-m1l">
@@ -159,7 +159,7 @@
                                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="addQuantityButton:" destination="65v-qi-6IK" eventType="touchUpInside" id="IyH-SU-YQJ"/>
+                                                        <action selector="addButtonAction:" destination="wTF-Aa-cpr" eventType="touchUpInside" id="uKG-qZ-jog"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -203,7 +203,7 @@
                     <navigationItem key="navigationItem" id="tYl-lf-VzR">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="aqQ-Vf-2gV">
                             <connections>
-                                <action selector="addNewPurchase:" destination="65v-qi-6IK" id="cnZ-ap-Ib3"/>
+                                <segue destination="bhL-yp-tlQ" kind="show" identifier="showNewPurchase" id="PVD-r6-iqw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -211,6 +211,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Skb-P7-i7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1600.7633587786258" y="-2.1126760563380285"/>
+        </scene>
+        <!--GroceryViewController(Rose)-->
+        <scene sceneID="EyX-0S-aMV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GroceryViewController(Rose)" id="bhL-yp-tlQ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="VUd-fv-cOU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYC-4r-Nmk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2225" y="-136"/>
         </scene>
     </scenes>
     <resources>

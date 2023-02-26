@@ -12,6 +12,9 @@ class ShoppingListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +61,7 @@ class ShoppingListController: UITableViewController {
 
             self.deleteElementShopping(at: indexPath.row)
             succes(true)
+            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
         }
         delete.image = UIImage(systemName: "trash")
         delete.backgroundColor = .red
@@ -69,15 +73,16 @@ class ShoppingListController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let delete = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
+        let checking = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
             shoppings[indexPath.row].isChecked.toggle()
+            shoppings[indexPath.row].isCheckedPurchases()
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
             succes(true)
         }
-        delete.image = shoppings[indexPath.row].isChecked ? UIImage(systemName: "clear") : UIImage(systemName: "checkmark")
-        delete.backgroundColor = shoppings[indexPath.row].isChecked ? .red : .green
+        checking.image = shoppings[indexPath.row].isChecked ? UIImage(systemName: "clear") : UIImage(systemName: "checkmark")
+        checking.backgroundColor = shoppings[indexPath.row].isChecked ? .red : .green
         
-        let swipeAction = UISwipeActionsConfiguration(actions: [delete])
+        let swipeAction = UISwipeActionsConfiguration(actions: [checking])
         swipeAction.performsFirstActionWithFullSwipe = false
         return swipeAction
     }
@@ -88,11 +93,7 @@ class ShoppingListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var totalPrice = 0.0
-        for shopping in shoppings {
-            totalPrice += shopping.totalPrice
-        }
-        return "Итого: \(totalPrice)р."
+        return "Итого: " + (getTotalPrice().formatted()) + "р."
     }
 }
 
@@ -102,11 +103,18 @@ extension ShoppingListController {
         if segue.identifier == "showGroceryList" {
             guard let index = sender as? Int else { return }
             guard let groceryVC = segue.destination as? GroceryListController else { return }
-            groceryVC.shopping = shoppings[index]
             groceryVC.at = index
         }
     }
 
+    private func getTotalPrice() -> Double {
+        var amount = 0.0
+        for shopping in shoppings {
+            amount += shopping.totalPrice
+        }
+        return amount
+    }
+    
     private func edittingElement(_ title: String, at: Int) {
         let indexPath = IndexPath(row: at, section: 0)
         shoppings[at].name = title
@@ -125,8 +133,6 @@ extension ShoppingListController {
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
-    
- 
     func alertForShopping(_ text: String, at: Int?, handler: @escaping(_ title: String) -> Void) -> UIAlertController {
 
         let title = at != nil ? "Изменение записи" : "Новая запись"
@@ -136,13 +142,10 @@ extension ShoppingListController {
         let cancel = UIAlertAction(title: "Cancel", style: .destructive)
         let ok = UIAlertAction(title: "OK", style: .default) { _ in
             guard let text = alert.textFields?.first?.text else { return }
-            if text.count > 3 {
-                handler(text)
-            }
+            if text.count > 3 { handler(text) }
         }
         alert.addAction(ok)
         alert.addAction(cancel)
-        
         return alert
     }
     

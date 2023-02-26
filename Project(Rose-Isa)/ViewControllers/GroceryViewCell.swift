@@ -9,6 +9,9 @@ import UIKit
 
 class GroceryViewCell: UITableViewCell {
     
+    var delegate: GroceryViewCellDElegate!
+    var indexShopping: Int?
+    
     @IBOutlet weak var nameGroceryLabel: UILabel!
     @IBOutlet weak var priceGroceryLabel: UILabel!
     @IBOutlet weak var quantityGroceryLabel: UILabel!
@@ -27,17 +30,19 @@ class GroceryViewCell: UITableViewCell {
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
     }
-    
-    func configure(_ name: String) {
-        nameGroceryLabel.text = name
-    }
-    
+
     func configure(_ purchase: Purchase) {
-        subButton.isEnabled = purchase.quantity > 0 ? true : false
-        addButton.isEnabled = purchase.quantity < 100 ? true : false
-        
         nameGroceryLabel.text = purchase.name
         priceGroceryLabel.text = purchase.price.formatted()
         quantityGroceryLabel.text = purchase.quantity.formatted()
+//        self.backgroundColor = purchase.isChecked ? .green : .white
+    }
+    
+    @IBAction func addButtonAction(_ sender: UIButton) {
+        delegate.changesQuantityAdd(self)
+    }
+    
+    @IBAction func subButtonAction(_ sender: UIButton) {
+        delegate.changesQuantitySub(self)
     }
 }

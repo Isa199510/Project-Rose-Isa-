@@ -12,7 +12,7 @@ class ShoppingManager {
     static let shared = ShoppingManager()
     
     func addIter(_ n: Double, shoppingIndex: Int, purchaseIndex: Int) {
-        shoppings[shoppingIndex].purchases?[purchaseIndex].quantity += n
+        shoppings[shoppingIndex].purchases[purchaseIndex].quantity += n
     }
     
 }

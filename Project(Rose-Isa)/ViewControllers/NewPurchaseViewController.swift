@@ -9,21 +9,50 @@ import UIKit
 
 class NewPurchaseViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var priceTextField: UITextField!
+    
+    var purchase: Purchase!
+    var delegate: NewPurchaseVewControllerDelegate!
+    
+    var nameOfPurchase = ""
+    var quantity = 0
+    var price = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        nameTextField.delegate = self
+        priceTextField.delegate = self
+        nameTextField.text = String(purchase.name)
+        priceTextField.text = String(purchase.price)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        quantityLabel.text = String(format: "%.0f", sender.value)
+        quantity = Int(sender.value)
     }
-    */
+    
+    
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
+    
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        view.endEditing(true)
+        delegate.addNewItems(for: purchase)
+        dismiss(animated: true)
+    }
+}
 
+// доделать
+extension NewPurchaseViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == nameTextField {
+            purchase.name = textField.text
+        } else {
+            purchase.price = textField.text
+        }
+    }
 }

@@ -12,9 +12,16 @@ protocol GroceryViewCellDElegate {
     func changesQuantitySub(_ cell: GroceryViewCell)
 }
 
+// подписала под протокол
+protocol NewPurchaseVewControllerDelegate {
+    func addNewItems(for purchase: Purchase)
+}
+
 class GroceryListController: UITableViewController {
     
     var at: Int!
+    
+    private var purchase = Purchase(name: "", quantity: 0, price: 0) // добавила экземпляр модели
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,8 +113,12 @@ class GroceryListController: UITableViewController {
 extension GroceryListController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let newPurchaseVC = navigationVC.topViewController as? NewPurchaseViewController else { return }
+        newPurchaseVC.purchase = purchase
+        newPurchaseVC.delegate = self
     }
+}
     
     enum Operations {
         case add, sub
@@ -135,5 +146,14 @@ extension GroceryListController: GroceryViewCellDElegate {
     func changesQuantitySub(_ cell: GroceryViewCell) {
         let index = cell.addButton.tag
         сhangesQuantity(index, operation: .sub)
+    }
+}
+// добавила экстеншн
+extension GroceryListController: NewPurchaseVewControllerDelegate {
+    func addNewItems(for purchase: Purchase) {
+        priceGroceryLabel.text = String(purchase.price)
+        nameGroceryLabel.text = String(purchase.name)
+        quantityGroceryLabel.text = String(purchase.quantity)
+        self.purchase = purchase
     }
 }

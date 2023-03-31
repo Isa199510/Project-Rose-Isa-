@@ -14,7 +14,8 @@ protocol GroceryViewCellDElegate {
 
 // подписала под протокол
 protocol NewPurchaseVewControllerDelegate {
-    func addNewItems(for purchase: Purchase)
+    func editPurchase(for purchase: Purchase, at index: Int?)
+    func addNewPurchase(for purchase: Purchase)
 }
 
 class GroceryListController: UITableViewController {
@@ -28,6 +29,11 @@ class GroceryListController: UITableViewController {
         title = shoppings[at].name
         tableView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
     }
+    
+    @IBAction func showNewGroceryButton(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "showNewPurchase", sender: nil)
+    }
+    
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,7 +68,8 @@ class GroceryListController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "showNewPurchase", sender: indexPath.row)
+//        performSegue(withIdentifier: "showEditPurchase", sender: indexPath.row)
+        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -75,6 +82,7 @@ class GroceryListController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
+            self.performSegue(withIdentifier: "showEditPurchase", sender: indexPath.row)
             // editing...
             succes(true)
         }
@@ -113,12 +121,18 @@ class GroceryListController: UITableViewController {
 extension GroceryListController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let navigationVC = segue.destination as? UINavigationController else { return }
-        guard let newPurchaseVC = navigationVC.topViewController as? NewPurchaseViewController else { return }
-        newPurchaseVC.purchase = purchase
-        newPurchaseVC.delegate = self
+        guard let newPurchaseVC = segue.destination as? NewPurchaseViewController else { return }
+        if segue.identifier == "showNewPurchase" {
+            newPurchaseVC.delegate = self
+
+        } else if segue.identifier == "showEditPurchase" {
+            guard let indexShopping = at else { return }
+            guard let indexPurchase = sender as? Int else { return }
+            newPurchaseVC.delegate = self
+            let newPurchase = shoppings[indexShopping].purchases[indexPurchase]
+            newPurchaseVC.configure(newPurchase, indexPurchase: indexPurchase)
+        }
     }
-}
     
     enum Operations {
         case add, sub
@@ -148,12 +162,21 @@ extension GroceryListController: GroceryViewCellDElegate {
         сhangesQuantity(index, operation: .sub)
     }
 }
-// добавила экстеншн
+
 extension GroceryListController: NewPurchaseVewControllerDelegate {
-    func addNewItems(for purchase: Purchase) {
-        priceGroceryLabel.text = String(purchase.price)
-        nameGroceryLabel.text = String(purchase.name)
-        quantityGroceryLabel.text = String(purchase.quantity)
-        self.purchase = purchase
+    
+    func addNewPurchase(for purchase: Purchase) {
+        guard let indexShopping = at else { return }
+        shoppings[indexShopping].purchases.insert(purchase, at: 0)
+        tableView.reloadData()
     }
+    
+    func editPurchase(for purchase: Purchase, at index: Int?) {
+        guard let indexShopping = at else { return }
+        if let index = index {
+            shoppings[indexShopping].purchases[index] = purchase
+        }
+        tableView.reloadData()
+    }
+
 }

@@ -78,12 +78,12 @@
 		4A746851298ED81800557E87 /* Project(Rose-Isa) */ = {
 			isa = PBXGroup;
 			children = (
+				4A746860298ED81800557E87 /* Info.plist */,
 				4A793CE829A121A00080FF33 /* ViewControllers */,
 				4A746866298ED82400557E87 /* App */,
 				4A746867298ED82F00557E87 /* Storyboards */,
-				4A746860298ED81800557E87 /* Info.plist */,
-				4A746868298ED84E00557E87 /* TabBarController.swift */,
 				4A746872298EDC9B00557E87 /* Model */,
+				4A746868298ED84E00557E87 /* TabBarController.swift */,
 			);
 			path = "Project(Rose-Isa)";
 			sourceTree = "<group>";

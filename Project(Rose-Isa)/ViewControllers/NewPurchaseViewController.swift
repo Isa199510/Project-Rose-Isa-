@@ -7,52 +7,63 @@
 
 import UIKit
 
-class NewPurchaseViewController: UIViewController {
+class NewPurchaseViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var quantityStepperOutlet: UIStepper!
     
-    var purchase: Purchase!
+    var indexPurchase: Int!
     var delegate: NewPurchaseVewControllerDelegate!
     
-    var nameOfPurchase = ""
-    var quantity = 0
-    var price = ""
+    
+    var name = ""
+    var price = 0.0
+    var quantity = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameTextField.delegate = self
-        priceTextField.delegate = self
-        nameTextField.text = String(purchase.name)
-        priceTextField.text = String(purchase.price)
+        nameTextField.text = name
+        priceTextField.text = price.formatted() + " "
+        quantityLabel.text = quantity.formatted() + " шт"
+        quantityStepperOutlet.value = quantity
+        
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
-        quantityLabel.text = String(format: "%.0f", sender.value)
-        quantity = Int(sender.value)
+        quantity = sender.value
+        quantityLabel.text = quantity.formatted() + " шт"
     }
     
     
-    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func cancelButton() {
         dismiss(animated: true)
     }
     
     
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        view.endEditing(true)
-        delegate.addNewItems(for: purchase)
+    @IBAction func saveButton() {
+        let newPurchase = Purchase(
+            name: nameTextField.text ?? "",
+            quantity: quantity,
+            price: price
+        )
+        
+        if let index = indexPurchase {
+            delegate.editPurchase(for: newPurchase, at: index)
+        } else {
+            delegate.addNewPurchase(for: newPurchase)
+        }
         dismiss(animated: true)
+    }
+
+    
+    func configure(_ purchase: Purchase, indexPurchase: Int?) {
+        name = purchase.name
+        price = purchase.price
+        quantity = purchase.quantity
+        self.indexPurchase = indexPurchase
     }
 }
 
-// доделать
-extension NewPurchaseViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == nameTextField {
-            purchase.name = textField.text
-        } else {
-            purchase.price = textField.text
-        }
-    }
-}
+

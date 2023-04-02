@@ -11,9 +11,9 @@ class ShoppingListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         tableView.separatorStyle = .singleLine
-        tableView.separatorColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        tableView.separatorColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
     }
     
@@ -139,8 +139,8 @@ extension ShoppingListController {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addTextField()
         alert.textFields?.first?.text = text
-        let cancel = UIAlertAction(title: "Cancel", style: .destructive)
-        let ok = UIAlertAction(title: "OK", style: .default) { _ in
+        let cancel = UIAlertAction(title: "Закрыть", style: .destructive)
+        let ok = UIAlertAction(title: "Ок", style: .default) { _ in
             guard let text = alert.textFields?.first?.text else { return }
             if text.count > 3 { handler(text) }
         }

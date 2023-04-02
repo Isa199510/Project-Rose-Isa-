@@ -8,18 +8,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Shopping-->
+        <!--Покупки-->
         <scene sceneID="tDb-Ep-Pyg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hnp-NB-mep" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shopping" image="cart" catalog="system" id="DUK-F4-F2I"/>
+                    <tabBarItem key="tabBarItem" title="Покупки" image="cart" catalog="system" id="DUK-F4-F2I"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="0Bs-PS-XYE">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.33333334329999997" green="0.7019608021" blue="0.74117654560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" systemColor="systemPinkColor"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -31,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
-        <!--Shoppings-->
+        <!--Список покупок-->
         <scene sceneID="Sdk-ga-vHY">
             <objects>
                 <tableViewController id="MtQ-Ns-ciS" customClass="ShoppingListController" customModule="Project_Rose_Isa_" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,7 +91,7 @@
                             <outlet property="delegate" destination="MtQ-Ns-ciS" id="oyd-ed-20f"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Shoppings" id="r5e-Ts-7v9">
+                    <navigationItem key="navigationItem" title="Список покупок" id="r5e-Ts-7v9">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="GLg-ag-eiQ">
                             <connections>
                                 <action selector="newShopping:" destination="MtQ-Ns-ciS" id="Gnk-Ca-xTh"/>
@@ -244,9 +249,6 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

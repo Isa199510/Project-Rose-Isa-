@@ -41,15 +41,14 @@ func getShoppingList() -> [ShoppingLists] {
 
 struct Person {
     let name: String
-    let age: Int
-    let info: String
+    let city: String
     
     static func getPersons() -> [Person] {
         var persons: [Person] = [Person]()
         persons.insert(
             contentsOf: [
-                Person(name: "Isa", age: 27, info: ""),
-                Person(name: "Rose", age: 35, info: "")
+                Person(name: "Иса Арбухов", city: "Город"),
+                Person(name: "Роза Халдеева", city: "Алматы")
             ],
             at: 0)
         return persons

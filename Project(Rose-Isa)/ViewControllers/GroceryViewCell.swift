@@ -35,7 +35,6 @@ class GroceryViewCell: UITableViewCell {
         nameGroceryLabel.text = purchase.name
         priceGroceryLabel.text = purchase.price.formatted()
         quantityGroceryLabel.text = purchase.quantity.formatted()
-//        self.backgroundColor = purchase.isChecked ? .green : .white
     }
     
     @IBAction func addButtonAction(_ sender: UIButton) {

@@ -40,7 +40,35 @@ extension InfoListController {
 
 
 class InfoViewController: UIViewController {
+    
+    
+    @IBOutlet weak var devPhoto: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var careerLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var gitHubLabel: UILabel!
+    
+    var developer: Developer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Developers"
+        
+        devPhoto.image = UIImage(named: developer.fullName)
+        devPhoto.layer.cornerRadius = 15
+        
+        fullNameLabel.text = developer.fullName
+        careerLabel.text = developer.career
+        
+        cityLabel.text = "Город:  \(developer.city)"
+        gitHubLabel.text = "Возраст:  \(developer.gitHub)"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 }
+

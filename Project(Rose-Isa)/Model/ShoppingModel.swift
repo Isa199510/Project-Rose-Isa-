@@ -8,8 +8,8 @@
 import Foundation
 
 struct Purchase {
-    let name: String
-    let price: Double
+    var name: String
+    var price: Double
     var quantity: Double
     var isChecked: Bool
     

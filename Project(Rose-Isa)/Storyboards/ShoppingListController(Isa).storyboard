@@ -203,10 +203,14 @@
                     <navigationItem key="navigationItem" id="tYl-lf-VzR">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="aqQ-Vf-2gV">
                             <connections>
-                                <segue destination="bhL-yp-tlQ" kind="show" identifier="showNewPurchase" id="PVD-r6-iqw"/>
+                                <action selector="showNewGroceryButton:" destination="65v-qi-6IK" id="RGr-aw-ltP"/>
+                                <segue destination="bhL-yp-tlQ" kind="presentation" identifier="showNewPurchase" id="6AA-df-YKn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="bhL-yp-tlQ" kind="presentation" identifier="showEditPurchase" id="84v-U5-Dfd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Skb-P7-i7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,9 +224,12 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYC-4r-Nmk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2225" y="-136"/>
+            <point key="canvasLocation" x="2437" y="-223"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6AA-df-YKn"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="plus" catalog="system" width="128" height="113"/>

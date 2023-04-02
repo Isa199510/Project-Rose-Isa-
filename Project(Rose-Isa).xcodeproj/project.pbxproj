@@ -24,6 +24,8 @@
 		4AC21F4129A41267005281B7 /* GroceryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC21F4029A41267005281B7 /* GroceryListController.swift */; };
 		4AC21F4329A48CB2005281B7 /* GroceryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC21F4229A48CB2005281B7 /* GroceryViewCell.swift */; };
 		C65DB35B29A12AD6005BFF37 /* NewPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */; };
+		C6A44C0B29D963D100014384 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A44C0A29D963D100014384 /* InfoModel.swift */; };
+		C6A44C0D29D963DF00014384 /* DataDevelopers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A44C0C29D963DF00014384 /* DataDevelopers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		4AC21F4029A41267005281B7 /* GroceryListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListController.swift; sourceTree = "<group>"; };
 		4AC21F4229A48CB2005281B7 /* GroceryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryViewCell.swift; sourceTree = "<group>"; };
 		C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPurchaseViewController.swift; sourceTree = "<group>"; };
+		C6A44C0A29D963D100014384 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		C6A44C0C29D963DF00014384 /* DataDevelopers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDevelopers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +82,12 @@
 		4A746851298ED81800557E87 /* Project(Rose-Isa) */ = {
 			isa = PBXGroup;
 			children = (
+				4A746860298ED81800557E87 /* Info.plist */,
 				4A793CE829A121A00080FF33 /* ViewControllers */,
 				4A746866298ED82400557E87 /* App */,
 				4A746867298ED82F00557E87 /* Storyboards */,
-				4A746860298ED81800557E87 /* Info.plist */,
-				4A746868298ED84E00557E87 /* TabBarController.swift */,
 				4A746872298EDC9B00557E87 /* Model */,
+				4A746868298ED84E00557E87 /* TabBarController.swift */,
 			);
 			path = "Project(Rose-Isa)";
 			sourceTree = "<group>";
@@ -115,6 +119,8 @@
 			children = (
 				4A746870298EDC3A00557E87 /* ShoppingModel.swift */,
 				4A746874298EDD7D00557E87 /* DataStore.swift */,
+				C6A44C0A29D963D100014384 /* InfoModel.swift */,
+				C6A44C0C29D963DF00014384 /* DataDevelopers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A015BE029A2B2C500A76D91 /* InfoListController.swift in Sources */,
+				C6A44C0D29D963DF00014384 /* DataDevelopers.swift in Sources */,
 				4A746871298EDC3A00557E87 /* ShoppingModel.swift in Sources */,
 				4A93BAF729A12293007D7E31 /* ShoppingListController.swift in Sources */,
 				4AC21F4129A41267005281B7 /* GroceryListController.swift in Sources */,
@@ -217,6 +224,7 @@
 				C65DB35B29A12AD6005BFF37 /* NewPurchaseViewController.swift in Sources */,
 				4A746875298EDD7D00557E87 /* DataStore.swift in Sources */,
 				4A746855298ED81800557E87 /* SceneDelegate.swift in Sources */,
+				C6A44C0B29D963D100014384 /* InfoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

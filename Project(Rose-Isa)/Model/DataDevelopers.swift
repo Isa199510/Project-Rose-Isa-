@@ -21,7 +21,7 @@
 //            DataDeveloper(
 //                name: "Иса",
 //                surname: "Арбухов",
-//                city: "город",
+//                city: "Москва",
 //                gitHub: "Isa199510",
 //                career: "iOS developer"
 //            ),

@@ -34,7 +34,7 @@
                             <outlet property="delegate" destination="JDT-qQ-rox" id="VZL-px-kt1"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Developers" image="person.2" catalog="system" id="4U4-6T-ymU"/>
+                    <tabBarItem key="tabBarItem" title="Разработчики" image="person.2" catalog="system" id="4U4-6T-ymU"/>
                     <navigationItem key="navigationItem" title="Info" id="6ja-B8-imr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>

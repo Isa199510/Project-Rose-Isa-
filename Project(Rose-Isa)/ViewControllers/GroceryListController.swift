@@ -23,7 +23,7 @@ final class GroceryListController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = shoppings[at].name
+        title = shoppingManager.shoppings[at].name
         tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
@@ -35,7 +35,7 @@ final class GroceryListController: UITableViewController {
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let index = self.at {
-            return shoppings[index].purchases.count
+            return shoppingManager.shoppings[index].purchases.count
         }
         return 0
     }
@@ -43,14 +43,14 @@ final class GroceryListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let groceryCell = tableView.dequeueReusableCell(withIdentifier: "groceryCell", for: indexPath) as? GroceryViewCell else { return UITableViewCell() }
         if let index = self.at {
-            groceryCell.configure(shoppings[self.at].purchases[indexPath.row])
+            groceryCell.configure(shoppingManager.shoppings[self.at].purchases[indexPath.row])
             
             groceryCell.addButton.tag = indexPath.row
             groceryCell.subButton.tag = indexPath.row
             
-            groceryCell.subButton.isEnabled = (shoppings[index].purchases[indexPath.row]).quantity > 0 ? true : false
-            groceryCell.addButton.isEnabled = (shoppings[index].purchases[indexPath.row]).quantity < 100 ? true : false
-            groceryCell.backgroundColor = shoppings[index].purchases[indexPath.row].isChecked ? .green : .white
+            groceryCell.subButton.isEnabled = (shoppingManager.shoppings[index].purchases[indexPath.row]).quantity > 0 ? true : false
+            groceryCell.addButton.isEnabled = (shoppingManager.shoppings[index].purchases[indexPath.row]).quantity < 100 ? true : false
+            groceryCell.backgroundColor = shoppingManager.shoppings[index].purchases[indexPath.row].isChecked ? .green : .white
             
             groceryCell.indexShopping = at
             groceryCell.delegate = self
@@ -68,11 +68,12 @@ final class GroceryListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var amount = 0.0
-        for purchase in shoppings[at].purchases {
-            amount += purchase.amount
-        }
-        return "Итого: \(amount)р."
+//        var amount = 0.0
+//        for purchase in shoppings[at].purchases {
+//            amount += purchase.amount
+//        }
+//        return "Итого: \(amount)р."
+        shoppingManager.shoppings[at].totalPrice.formatted()
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -85,7 +86,7 @@ final class GroceryListController: UITableViewController {
         
         let delete = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
             guard let at = self.at else { return Void()}
-            shoppings[at].purchases.remove(at: indexPath.row)
+            shoppingManager.shoppings[at].purchases.remove(at: indexPath.row)
             self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             succes(true)
         }
@@ -99,12 +100,12 @@ final class GroceryListController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let checking = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
-            shoppings[self.at].purchases[indexPath.row].isChecked.toggle()
+            shoppingManager.shoppings[self.at].purchases[indexPath.row].isChecked.toggle()
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
             succes(true)
         }
-        checking.backgroundColor = shoppings[at].purchases[indexPath.row].isChecked ? .red : .green
-        checking.image = shoppings[at].purchases[indexPath.row].isChecked ? UIImage(systemName: "clear") : UIImage(systemName: "checkmark")
+        checking.backgroundColor = shoppingManager.shoppings[at].purchases[indexPath.row].isChecked ? .red : .green
+        checking.image = shoppingManager.shoppings[at].purchases[indexPath.row].isChecked ? UIImage(systemName: "clear") : UIImage(systemName: "checkmark")
         
         let swipeAction = UISwipeActionsConfiguration(actions: [checking])
         swipeAction.performsFirstActionWithFullSwipe = false
@@ -123,7 +124,7 @@ extension GroceryListController {
             guard let indexShopping = at else { return }
             guard let indexPurchase = sender as? Int else { return }
             newPurchaseVC.delegate = self
-            let newPurchase = shoppings[indexShopping].purchases[indexPurchase]
+            let newPurchase = shoppingManager.shoppings[indexShopping].purchases[indexPurchase]
             newPurchaseVC.configure(newPurchase, indexPurchase: indexPurchase)
         }
     }
@@ -137,11 +138,17 @@ extension GroceryListController {
         let indexSet = IndexSet(integer: 0)
         switch operation {
         case .add:
-            shoppings[at].purchases[index].quantity += 1
+            shoppingManager.shoppings[at].purchases[index].quantity += 1
         case .sub:
-            shoppings[at].purchases[index].quantity -= 1
+            shoppingManager.shoppings[at].purchases[index].quantity -= 1
         }
-        tableView.reloadSections(indexSet, with: .automatic)
+        
+        tableView.headerView(forSection: 0)?.textLabel?.text = "Итого: \(shoppingManager.shoppings[at].totalPrice.formatted())р"
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        
+//        tableView.reloadSections(indexSet, with: .automatic)
     }
 }
 
@@ -161,14 +168,14 @@ extension GroceryListController: NewPurchaseVewControllerDelegate {
     
     func addNewPurchase(for purchase: Purchase) {
         guard let indexShopping = at else { return }
-        shoppings[indexShopping].purchases.insert(purchase, at: 0)
+        shoppingManager.shoppings[indexShopping].purchases.insert(purchase, at: 0)
         tableView.reloadData()
     }
     
     func editPurchase(for purchase: Purchase, at index: Int?) {
         guard let indexShopping = at else { return }
         if let index = index {
-            shoppings[indexShopping].purchases[index] = purchase
+            shoppingManager.shoppings[indexShopping].purchases[index] = purchase
         }
         tableView.reloadData()
     }

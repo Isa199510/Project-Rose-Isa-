@@ -31,13 +31,14 @@ final class ShoppingListController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        shoppings.count
+//        shoppings.count
+        shoppingManager.shoppings.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let shoppingCell = tableView.dequeueReusableCell(withIdentifier: "shoppingCell", for: indexPath) as? ShoppingViewCell
         else { return UITableViewCell()}
-        shoppingCell.configure(shoppings[indexPath.row])
+        shoppingCell.configure(shoppingManager.shoppings[indexPath.row])
         return shoppingCell
     }
     
@@ -48,7 +49,7 @@ final class ShoppingListController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
 
-            let alert = self.alertForShopping(shoppings[indexPath.row].name, at: indexPath.row) {title in
+            let alert = self.alertForShopping(shoppingManager.shoppings[indexPath.row].name, at: indexPath.row) {title in
                 self.edittingElement(title, at: indexPath.row)
             }
             self.present(alert, animated: true)
@@ -74,13 +75,13 @@ final class ShoppingListController: UITableViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let checking = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
-            shoppings[indexPath.row].isChecked.toggle()
-            shoppings[indexPath.row].isCheckedPurchases()
+            shoppingManager.shoppings[indexPath.row].isChecked.toggle()
+            shoppingManager.shoppings[indexPath.row].isCheckedPurchases()
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
             succes(true)
         }
-        checking.image = shoppings[indexPath.row].isChecked ? UIImage(systemName: "clear") : UIImage(systemName: "checkmark")
-        checking.backgroundColor = shoppings[indexPath.row].isChecked ? .red : .green
+        checking.image = shoppingManager.shoppings[indexPath.row].isChecked ? UIImage(systemName: "clear") : UIImage(systemName: "checkmark")
+        checking.backgroundColor = shoppingManager.shoppings[indexPath.row].isChecked ? .red : .green
         
         let swipeAction = UISwipeActionsConfiguration(actions: [checking])
         swipeAction.performsFirstActionWithFullSwipe = false
@@ -109,7 +110,7 @@ extension ShoppingListController {
 
     private func getTotalPrice() -> Double {
         var amount = 0.0
-        for shopping in shoppings {
+        for shopping in shoppingManager.shoppings {
             amount += shopping.totalPrice
         }
         return amount
@@ -117,19 +118,19 @@ extension ShoppingListController {
     
     private func edittingElement(_ title: String, at: Int) {
         let indexPath = IndexPath(row: at, section: 0)
-        shoppings[at].name = title
+        shoppingManager.shoppings[at].name = title
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     private func newElememtShopping(_ title: String) {
         let indexPath = IndexPath(row: 0, section: 0)
-        shoppings.insert(ShoppingLists(title), at: 0)
+        shoppingManager.shoppings.insert(ShoppingLists(title), at: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
     private func deleteElementShopping(at: Int) {
         let indexPath = IndexPath(row: at, section: 0)
-        shoppings.remove(at: at)
+        shoppingManager.shoppings.remove(at: at)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     

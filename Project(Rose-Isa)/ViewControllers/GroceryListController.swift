@@ -12,18 +12,15 @@ protocol GroceryViewCellDElegate {
     func changesQuantitySub(_ cell: GroceryViewCell)
 }
 
-// подписала под протокол
 protocol NewPurchaseVewControllerDelegate {
     func editPurchase(for purchase: Purchase, at index: Int?)
     func addNewPurchase(for purchase: Purchase)
 }
 
-class GroceryListController: UITableViewController {
+final class GroceryListController: UITableViewController {
     
     var at: Int!
-    
-    private var purchase = Purchase(name: "", quantity: 0, price: 0) // добавила экземпляр модели
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         title = shoppings[at].name
@@ -68,8 +65,6 @@ class GroceryListController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        performSegue(withIdentifier: "showEditPurchase", sender: indexPath.row)
-        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -83,7 +78,6 @@ class GroceryListController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "") { (ac: UIContextualAction, view: UIView, succes:(Bool) -> Void) in
             self.performSegue(withIdentifier: "showEditPurchase", sender: indexPath.row)
-            // editing...
             succes(true)
         }
         edit.image = UIImage(systemName: "pencil")

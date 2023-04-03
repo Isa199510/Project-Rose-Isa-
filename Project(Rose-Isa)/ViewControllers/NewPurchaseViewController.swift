@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewPurchaseViewController: UIViewController, UITextFieldDelegate {
+final class NewPurchaseViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var quantityLabel: UILabel!

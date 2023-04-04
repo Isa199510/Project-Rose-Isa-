@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GroceryViewCell: UITableViewCell {
+final class GroceryViewCell: UITableViewCell {
     
     var delegate: GroceryViewCellDElegate!
     var indexShopping: Int?

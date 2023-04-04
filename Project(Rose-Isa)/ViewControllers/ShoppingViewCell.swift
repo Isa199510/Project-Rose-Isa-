@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ShoppingViewCell: UITableViewCell {
+final class ShoppingViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A015BE029A2B2C500A76D91 /* InfoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A015BDF29A2B2C500A76D91 /* InfoListController.swift */; };
 		4A0F910929A13518006B91CD /* ShoppingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0F910829A13518006B91CD /* ShoppingViewCell.swift */; };
 		4A746853298ED81800557E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746852298ED81800557E87 /* AppDelegate.swift */; };
 		4A746855298ED81800557E87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A746854298ED81800557E87 /* SceneDelegate.swift */; };
@@ -26,10 +25,11 @@
 		C65DB35B29A12AD6005BFF37 /* NewPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */; };
 		C6A44C0B29D963D100014384 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A44C0A29D963D100014384 /* InfoModel.swift */; };
 		C6A44C0D29D963DF00014384 /* DataDevelopers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A44C0C29D963DF00014384 /* DataDevelopers.swift */; };
+		C6E04E1429DC67B70000DFEC /* InfoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04E1329DC67B70000DFEC /* InfoListViewController.swift */; };
+		C6E04E1629DC68450000DFEC /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04E1529DC68450000DFEC /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A015BDF29A2B2C500A76D91 /* InfoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoListController.swift; sourceTree = "<group>"; };
 		4A0F910829A13518006B91CD /* ShoppingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewCell.swift; sourceTree = "<group>"; };
 		4A74684F298ED81800557E87 /* Project(Rose-Isa).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project(Rose-Isa).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A746852298ED81800557E87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPurchaseViewController.swift; sourceTree = "<group>"; };
 		C6A44C0A29D963D100014384 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		C6A44C0C29D963DF00014384 /* DataDevelopers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDevelopers.swift; sourceTree = "<group>"; };
+		C6E04E1329DC67B70000DFEC /* InfoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoListViewController.swift; sourceTree = "<group>"; };
+		C6E04E1529DC68450000DFEC /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +133,10 @@
 				4A93BAF629A12293007D7E31 /* ShoppingListController.swift */,
 				C65DB35A29A12AD6005BFF37 /* NewPurchaseViewController.swift */,
 				4A0F910829A13518006B91CD /* ShoppingViewCell.swift */,
-				4A015BDF29A2B2C500A76D91 /* InfoListController.swift */,
 				4AC21F4029A41267005281B7 /* GroceryListController.swift */,
 				4AC21F4229A48CB2005281B7 /* GroceryViewCell.swift */,
+				C6E04E1329DC67B70000DFEC /* InfoListViewController.swift */,
+				C6E04E1529DC68450000DFEC /* InfoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -212,9 +215,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A015BE029A2B2C500A76D91 /* InfoListController.swift in Sources */,
 				C6A44C0D29D963DF00014384 /* DataDevelopers.swift in Sources */,
+				C6E04E1429DC67B70000DFEC /* InfoListViewController.swift in Sources */,
 				4A746871298EDC3A00557E87 /* ShoppingModel.swift in Sources */,
+				C6E04E1629DC68450000DFEC /* InfoViewController.swift in Sources */,
 				4A93BAF729A12293007D7E31 /* ShoppingListController.swift in Sources */,
 				4AC21F4129A41267005281B7 /* GroceryListController.swift in Sources */,
 				4A746869298ED84E00557E87 /* TabBarController.swift in Sources */,

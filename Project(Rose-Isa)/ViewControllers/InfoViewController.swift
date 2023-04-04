@@ -20,7 +20,9 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        devPhoto.image = UIImage(developer.fullName) //отображение фото из ассетса?
+        guard let developer = developer else { return }
+        devPhoto.image = UIImage(named: developer.name)
+//        devPhoto.image = UIImage(developer.fullName) //отображение фото из ассетса?
         devPhoto.layer.cornerRadius = 10
         
         fullNameLabel.text = developer.fullName

@@ -16,7 +16,7 @@ class DescriptionCell: UITableViewCell {
 
 class InfoListViewController: UITableViewController {
     
-    var developer: [Developer]!
+    var developers: [Developer]!    // developer -> developers -- так как массив
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,11 @@ class InfoListViewController: UITableViewController {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
             var content = cell.defaultContentConfiguration()
-            let developer = developer[indexPath.row - 1]
+            
+            
+            guard let developers = developers else { return UITableViewCell() }  // так как у нас developers Опционал, надо его извдечь безопасно
+            
+            let developer = developers[indexPath.row - 1]
             
             content.text = developer.fullName
             content.textProperties.font = UIFont.systemFont(ofSize: 20.0)
@@ -68,11 +72,13 @@ class InfoListViewController: UITableViewController {
             content.secondaryText = developer.city
             content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 14.0)
             
+            // fullname у нас на русском, а фотки в accests на английском
             content.image = UIImage(named: developer.fullName)                  //отображение мини версии фото?
             content.imageProperties.cornerRadius = tableView.rowHeight / 2
             
             cell.accessoryType = .disclosureIndicator
             cell.contentConfiguration = content
+            
             
             return cell
         }
@@ -88,7 +94,7 @@ class InfoListViewController: UITableViewController {
         guard let infoVC = segue.destination as? InfoViewController else { return }
         
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let developer = developer[indexPath.row - 1]
+        let developer = developers[indexPath.row - 1]
         
         infoVC.developer = developer
     }

@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="description" rowHeight="229" id="E17-5l-Vct" customClass="FirstDescriptionCell" customModule="GuessCityApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="description" rowHeight="229" id="E17-5l-Vct" customClass="DescriptionCell" customModule="Project_Rose_Isa_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="229"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E17-5l-Vct" id="Ivo-6S-fCg" customClass="DescriptionCell" customModule="Project_Rose_Isa_" customModuleProvider="target">
@@ -134,12 +134,12 @@
                                         <constraint firstItem="WCc-hU-nV7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HA2-bh-Peu" secondAttribute="bottom" constant="10" id="ldJ-pE-EJh"/>
                                     </constraints>
                                     <connections>
-                                        <outlet property="aboutApp" destination="HA2-bh-Peu" id="hyg-jF-xPa"/>
+                                        <outlet property="aboutApp" destination="HA2-bh-Peu" id="Xsc-Am-nUu"/>
                                     </connections>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="aboutApp" destination="HA2-bh-Peu" id="1Ws-ec-KFR"/>
-                                    <outlet property="developers" destination="WCc-hU-nV7" id="dzv-SN-2RZ"/>
+                                    <outlet property="aboutApp" destination="HA2-bh-Peu" id="XFm-93-OCv"/>
+                                    <outlet property="developers" destination="WCc-hU-nV7" id="SUd-Ad-9rl"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" textLabel="V4D-oS-TUB" detailTextLabel="tKH-IF-wOt" imageView="YQB-hM-fUH" style="IBUITableViewCellStyleSubtitle" id="DQp-1t-VBI">

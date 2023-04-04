@@ -8,26 +8,31 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-
-        @IBOutlet weak var devPhoto: UIImageView!
-        @IBOutlet weak var fullNameLabel: UILabel!
-        @IBOutlet weak var careerLabel: UILabel!
-        @IBOutlet weak var cityLabel: UILabel!
-        @IBOutlet weak var gitHubLabel: UILabel!
     
-        var developer: Developer!
+    @IBOutlet weak var devPhoto: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var careerLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var gitHubLabel: UILabel!
     
-        override func viewDidLoad() {
-            super.viewDidLoad()
+    var developer: Developer!
     
-            devPhoto.image = UIImage(named: "rose")
-            devPhoto.layer.cornerRadius = 15
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        devPhoto.image = UIImage(developer.fullName) //отображение фото из ассетса?
+        devPhoto.layer.cornerRadius = 10
+        
+        fullNameLabel.text = developer.fullName
+        careerLabel.text = developer.career
+        
+        cityLabel.text = "город:  \(developer.city)"
+        gitHubLabel.text = "gitHub:  \(developer.gitHub)"
+    }
     
-            fullNameLabel.text = developer.fullName
-            careerLabel.text = developer.career
-    
-            cityLabel.text = "город:  \(developer.city)"
-            gitHubLabel.text = "gitHub:  \(developer.gitHub)"
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }
-

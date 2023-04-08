@@ -31,7 +31,6 @@ final class ShoppingListController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        shoppings.count
         shoppingManager.shoppings.count
     }
 
@@ -94,7 +93,7 @@ final class ShoppingListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Итого: " + (getTotalPrice().formatted()) + "р."
+        shoppingManager.sumShoppings != 0 ? "Итого: \(shoppingManager.sumShoppings)р." : ""
     }
 }
 
@@ -105,15 +104,11 @@ extension ShoppingListController {
             guard let index = sender as? Int else { return }
             guard let groceryVC = segue.destination as? GroceryListController else { return }
             groceryVC.at = index
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = "Список покупок"
+            navigationItem.backBarButtonItem = backItem
         }
-    }
-
-    private func getTotalPrice() -> Double {
-        var amount = 0.0
-        for shopping in shoppingManager.shoppings {
-            amount += shopping.totalPrice
-        }
-        return amount
     }
     
     private func edittingElement(_ title: String, at: Int) {

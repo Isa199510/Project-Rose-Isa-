@@ -15,7 +15,7 @@ struct Person {
         var persons: [Person] = [Person]()
         persons.insert(
             contentsOf: [
-                Person(name: "Иса Арбухов", city: "Город"),
+                Person(name: "Иса Арбухов", city: "Москва"),
                 Person(name: "Роза Халдеева", city: "Алматы")
             ],
             at: 0)

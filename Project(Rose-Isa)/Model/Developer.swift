@@ -19,24 +19,24 @@ struct Developer {
 
 extension Developer {
     static func getDevelopersList() -> [Developer] {
-        
-        var developers: [Developer] = []
-        
-        for developer in DataDevelopers.getDevelopersList() {
-            developers.append(
-                Developer(
-                    name: developer.name,
-                    surname: developer.surname,
-                    city: developer.city,
-                    gitHub: developer.gitHub,
-                    career: developer.career
-                )
+        [
+            Developer(
+                name: "Иса",
+                surname: "Арбухов",
+                city: "Москва",
+                gitHub: "Isa199510",
+                career: "iOS developer"
+            ),
+            Developer(
+                name: "Роза",
+                surname: "Халдеева",
+                city: "Алматы",
+                gitHub: "HelloRose2211",
+                career: "iOS developer"
             )
-        }
+        ]
         
-        return developers
     }
 }
-
 
 

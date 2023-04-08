@@ -31,7 +31,6 @@ final class GroceryListController: UITableViewController {
         performSegue(withIdentifier: "showNewPurchase", sender: nil)
     }
     
-    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let index = self.at {
@@ -68,12 +67,7 @@ final class GroceryListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        var amount = 0.0
-//        for purchase in shoppings[at].purchases {
-//            amount += purchase.amount
-//        }
-//        return "Итого: \(amount)р."
-        shoppingManager.shoppings[at].totalPrice.formatted()
+        shoppingManager.shoppings[at].totalPrice != 0 ? "Итого: \(shoppingManager.shoppings[at].totalPrice.formatted())р." : ""
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -135,7 +129,6 @@ extension GroceryListController {
     
     func сhangesQuantity(_ index: Int, operation: Operations) {
         guard let at = at else { return }
-        let indexSet = IndexSet(integer: 0)
         switch operation {
         case .add:
             shoppingManager.shoppings[at].purchases[index].quantity += 1
@@ -146,9 +139,6 @@ extension GroceryListController {
         tableView.headerView(forSection: 0)?.textLabel?.text = "Итого: \(shoppingManager.shoppings[at].totalPrice.formatted())р"
         let indexPath = IndexPath(row: index, section: 0)
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        
-        
-//        tableView.reloadSections(indexSet, with: .automatic)
     }
 }
 

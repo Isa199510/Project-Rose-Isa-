@@ -33,7 +33,7 @@ final class GroceryViewCell: UITableViewCell {
 
     func configure(_ purchase: Purchase) {
         nameGroceryLabel.text = purchase.name
-        priceGroceryLabel.text = purchase.price.formatted()
+        priceGroceryLabel.text = "\(purchase.price)р."
         quantityGroceryLabel.text = purchase.quantity.formatted()
     }
     

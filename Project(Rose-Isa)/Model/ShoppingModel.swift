@@ -64,17 +64,3 @@ struct ShoppingLists {
         }
     }
 }
-
-extension Purchase {
-    mutating func addOne() {
-        quantity += 1
-    }
-    
-    mutating func subOne() {
-        quantity -= 1
-    }
-    
-    mutating func setQuantity(_ value: Double) {
-        quantity = value
-    }
-}

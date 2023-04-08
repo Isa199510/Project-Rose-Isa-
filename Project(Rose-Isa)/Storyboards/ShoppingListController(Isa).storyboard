@@ -99,7 +99,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="65v-qi-6IK" kind="show" identifier="showGroceryList" id="VHu-bJ-YnO"/>
+                        <segue destination="65v-qi-6IK" kind="show" identifier="showGroceryList" id="FbK-cE-nTz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFn-Tf-YrA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

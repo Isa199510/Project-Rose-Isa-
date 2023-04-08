@@ -12,12 +12,13 @@ class ShoppingManager {
     var shoppings: [ShoppingLists] = getShoppingList()
     static let shared = ShoppingManager()
     
+    var sumShoppings: Double {
+        shoppings.reduce(0) { $0 + $1.totalPrice}
+    }
+    
     func addIter(_ n: Double, shoppingIndex: Int, purchaseIndex: Int) {
         shoppings[shoppingIndex].purchases[purchaseIndex].quantity += n
     }
-    
-    
-    private init() {}
     
     // Method for Shoppings
     func addShopping(shopping: ShoppingLists) {
@@ -34,20 +35,11 @@ class ShoppingManager {
     }
     
     func renameShopping(name: String, at: Int) {
-        let indexPath = IndexPath(row: at, section: 0)
         shoppings[at].name = name
     }
     
-    
-    // Methods for purchase
+    private init() {}
 }
-
-
-
-
-
-
-
 
 
 func getShoppingList() -> [ShoppingLists] {
